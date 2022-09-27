@@ -4,14 +4,14 @@ import { EthPrice, NFTTitle } from './SubInfo'
 import { COLORS, FONTS, SIZES } from '../constants'
 
 const DetailsDesc = ({data}) => {
-    const [text , setText] = useState(data.description.slice(0 ,100)) 
+    const [text , setText] = useState(data.prDesc.slice(0 ,100)) 
     const [readMore , setReadMore] = useState(false)
     const handleShow =()=>{
         if(!readMore){
-            setText(data.description)
+            setText(data.prDesc)
             setReadMore(true)
         }else{
-            setText(data.description.slice(0 ,100))
+            setText(data.prDesc.slice(0 ,100))
             setReadMore(false)
         }
     }
@@ -25,8 +25,8 @@ const DetailsDesc = ({data}) => {
             alignItems:'center'
         }
     }>
-     <NFTTitle title={data.name} subTitle={data.creator} />
-     <EthPrice  price={data.price}/>
+     <NFTTitle title={data.prName} subTitle={data.prQuant} />
+     <EthPrice  price={data.prPrice}/>
     </View>
     <View style={{marginVertical:SIZES.extraLarge *1.5}}></View>
       <Text style={{fontFamily:FONTS.semiBold , fontSize:SIZES.small , color:COLORS.primary}} >DESCRIPTION</Text>

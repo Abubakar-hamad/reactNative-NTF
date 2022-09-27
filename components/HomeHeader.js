@@ -1,8 +1,10 @@
-import { View, Text , Image , TextInput } from 'react-native'
+import { View, Text , Image , TextInput, TouchableOpacity } from 'react-native'
+
 import { assets, COLORS, FONTS, SIZES } from '../constants'
+import { Input } from './index'
 
 
-const HomeHeader = ({onSearch}) => {
+const HomeHeader = ({onSearch , onFilter}) => {
   return (
     <View style={{ padding:SIZES.extraLarge}}>
       <View style={{flexDirection:'row'  , justifyContent:'space-between' , alignItems:'center'  }} >
@@ -43,6 +45,12 @@ const HomeHeader = ({onSearch}) => {
           placeholder='Search NTFs'
         />
       </View>
+        <View style={{width:'100%' , flexDirection:'row' , justifyContent:'space-around' ,alignItems:'center' , marginTop:SIZES.large}}>
+          <TouchableOpacity onPress={()=>onFilter("all")}><Text style={{backgroundColor:'#db83d9'  , padding:SIZES.base  ,borderRadius:SIZES.medium , fontFamily:FONTS.bold}}>all items</Text></TouchableOpacity>
+          <TouchableOpacity onPress={()=>onFilter("electronic")}><Text style={{backgroundColor:'#D8EA64ed'  , padding:SIZES.base  ,borderRadius:SIZES.medium , fontFamily:FONTS.bold}}>electronic</Text></TouchableOpacity>
+          <TouchableOpacity onPress={()=>onFilter("fashion")}><Text style={{backgroundColor:'#6495ED'  , padding:SIZES.base  ,borderRadius:SIZES.medium , fontFamily:FONTS.bold}}>fashion</Text></TouchableOpacity>
+          <TouchableOpacity onPress={()=>onFilter("toys")}><Text style={{backgroundColor:'#9FE2BF'  , padding:SIZES.base  ,borderRadius:SIZES.medium , fontFamily:FONTS.bold}}>toys</Text></TouchableOpacity>
+        </View>
     </View>
   )
 }

@@ -3,14 +3,17 @@ import DetailsDesc from "./DetailsDesc";
 import FocusedStatus from "./FocusedStatus";
 import HomeHeader from "./HomeHeader";
 import NFTCard from "./NFTCard";
+import Comment from "./Comment";
 
+import {Input} from './Form'
 import { 
     SubInfo,
     NFTTitle ,
     EthPrice ,
     ImgagCmp ,
     People  ,
-    EndDate , } from "./SubInfo";
+    EndDate ,
+     } from "./SubInfo";
 
 export {
     SubInfo,
@@ -23,5 +26,7 @@ export {
     HomeHeader , 
     NFTCard ,
     DetailsDesc ,
-    DetailsBid
+    DetailsBid ,
+    Comment ,
+    Input
 }

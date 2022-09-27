@@ -3,8 +3,9 @@ import {useNavigation} from '@react-navigation/native'
 import { assets, CircleButton, COLORS, RectButton, SHADOWS, SIZES } from '../constants'
 import { EthPrice, NFTTitle, SubInfo  } from './SubInfo' 
 const NFTCard = ({data}) => {
+   
     const navigaton = useNavigation()
-    console.log(data  ,2213);
+
   return (
     <View style={{
         backgroundColor:COLORS.white ,
@@ -15,18 +16,18 @@ const NFTCard = ({data}) => {
     }} >
         <View style={{width:'100%' , height:250}} >
             <Image 
-            source={data.image}
+            source={{ uri:data.prImg[0]}}
             resizeMode='cover'
             style={{width:'100%' , height:'100%' , borderTopLeftRadius:SIZES.font , borderTopRightRadius:SIZES.font}}
             />
             <CircleButton imgUrl={assets.heart} right={10} top={10}/>
            
         </View>
-        <SubInfo />
+        <SubInfo cat={data.prCategory} time={data.createdAt}  />
         <View style={{width:'100%' , padding:SIZES.font ,
         //  flexDirection:'row' , justifyContent:'space-around' , alignItems:'center'
         }}>
-        <NFTTitle title={data.name} subTitle={data.creator}/>
+        <NFTTitle title={data.prName} subTitle={data.prQuant}/>
         <View style={{
             marginTop:SIZES.font ,
             flexDirection:'row',
@@ -34,8 +35,8 @@ const NFTCard = ({data}) => {
             alignItems:'center' ,
             flex:1
         }}>
-            <EthPrice price={data.price} />
-            <RectButton minWidth={120} fontSize={SIZES.font} handlePress={()=>navigaton.navigate("Details" , {data})} />
+            <EthPrice price={data.prPrice} />
+            <RectButton minWidth={120} fontSize={SIZES.font} val={'Details'} handlePress={()=>navigaton.navigate("Details" , {data})} />
         </View>
         </View>
     </View>

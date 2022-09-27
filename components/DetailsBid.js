@@ -4,27 +4,30 @@ import { EthPrice } from './SubInfo'
 import { COLORS, FONTS, SIZES } from '../constants'
 
 const DetailsBid = ({bid}) => {
+  console.log(bid.item);
+  const comm = bid.item
   return (
     <View style={{
-        width:'100%' ,
+        width:'90%' ,
         flexDirection:'row',
-        justifyContent:'space-around' ,
+        // justifyContent:'center' ,
         alignItems:'center',
         marginHorizontal:SIZES.base,
         marginVertical:SIZES.base,
+        padding:5 ,
+        marginHorizontal:'5%',
+        backgroundColor:'#fff',
+        borderRadius:SIZES.base
+      
     }}>
-      <Image 
-        source={bid.image} 
-        resizeMode='contain'
-        style={{width:48 , height:48}}
-      />
+     
       <View>
         <Text style={{
         fontFamily:FONTS.semiBold ,
         fontSize:SIZES.small ,
-        marginTop:3
+        marginTop:3 ,
       }}>
-        Bid placed by {bid.name}
+         {comm?.text}
       </Text>
       <Text
         style={{
@@ -32,9 +35,12 @@ const DetailsBid = ({bid}) => {
         fontSize:SIZES.small - 2 ,
         marginTop:3
         }}
-      >{bid.date}</Text>
+      >
+        By {comm?.userName}
+       
+        </Text>
       </View>
-      <EthPrice price={bid.price} />
+      {/* <EthPrice price={bid.prPrice} /> */}
     </View>
   )
 }
